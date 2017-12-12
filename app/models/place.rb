@@ -1,8 +1,8 @@
 class Place < ApplicationRecord
   has_many :events
 
-  validates :address, prsence: true
-  validates :city, prsence: true
+  validates :address, presence: true
+  validates :city, presence: true
 
   geocoded_by :full_address
   after_validation :geocode
