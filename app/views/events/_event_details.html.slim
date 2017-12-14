@@ -1,0 +1,18 @@
+ul
+  li
+    = link_to event.title, event_path(event)
+  li
+    = image_tag event.cover_url unless event.cover.blank?
+  li
+    = event.started_at
+  li
+    = event.organizer.name
+  li
+    = event.place.city
+  li
+    = event.public_url unless event.public_url.blank?
+- if current_user
+  = link_to 'Create', new_admin_event_path
+  = link_to 'Edit', edit_admin_event_path(event)
+  = link_to 'Destroy', admin_event_path(event), method: :delete, data: { confirm: 'are you sure?' }
+hr

@@ -1,0 +1,12 @@
+= form_with model: [:admin, @event], local: true do |e|
+  = e.label :title
+  = e.text_field :title
+  = e.label :description
+  = e.text_field :description
+  = e.file_field :cover, multiple: true
+  = date_select :event, :started_at
+  = e.collection_select :organizer_id, Organizer.all, :id, :name, prompt: true
+  = e.fields_for :place, @event.build_place do |p|
+    = p.text_field :city
+    = p.text_field :address
+  = e.submit
