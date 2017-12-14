@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :events, only: [:new, :create, :edit, :update, :destroy]
   end
 
-  resources :events, only: [:index, :show]
+  resources :events, only: [:index, :show] do
+    get :ics_calendar
+  end
   resources :organizers, only: [:index, :show]
 end

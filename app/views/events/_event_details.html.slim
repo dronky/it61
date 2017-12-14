@@ -11,6 +11,8 @@ ul
     = event.place.city
   li
     = event.public_url unless event.public_url.blank?
+p
+  = link_to 'Save to calendar', event_ics_calendar_path(event, id: event, protocol: :webcal, format: :ics)
 - if current_user
   = link_to 'Create', new_admin_event_path
   = link_to 'Edit', edit_admin_event_path(event)

@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'geocoder'
 gem 'carrierwave', '~> 1.0'
 gem 'slim'
+gem 'icalendar'
 
 
 # Use Capistrano for deployment
