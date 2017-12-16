@@ -14,4 +14,5 @@ Rails.application.routes.draw do
     get :ics_calendar
   end
   resources :organizers, only: [:index, :show]
+  resources :subscribers, only: [:new, :create]
 end

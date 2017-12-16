@@ -1,0 +1,7 @@
+h4 Subscribe to this event
+= form_with url: subscribers_path, local: true, method: :post do |form|
+  = form.label :email
+  = form.text_field :email
+  = form.hidden_field :event_id, value: event
+  = form.submit 'Subscribe'
+hr

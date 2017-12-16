@@ -33,6 +33,8 @@ gem 'geocoder'
 gem 'carrierwave', '~> 1.0'
 gem 'slim'
 gem 'icalendar'
+gem 'sidekiq'
+gem 'redis-rails'
 
 
 # Use Capistrano for deployment
@@ -45,6 +47,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'rspec-rails'
+  gem "factory_girl_rails"
 end
 
 group :development do

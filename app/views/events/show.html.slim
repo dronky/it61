@@ -1,3 +1,7 @@
 h1 Event Details
 = render 'event_details', event: @event
+p
+  | Map
+  br
+  = image_tag @event.google_map(location: [@event.place.latitude, @event.place.longitude].join(','))
 = link_to 'Back', root_path
