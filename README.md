@@ -1,24 +1,50 @@
-# README
+# Event app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Basic feature list:
 
-Things you may want to cover:
+ * User is able to see the events list
+ * User is able to download the ICS file
+ * User is able to subscribe to the events
+ * Admin is able to make CRUD operations on events
+ * Admin is able to change the delivery subscriptions period
 
-* Ruby version
 
-* System dependencies
+# Requirements
+* Ruby 2.4.1
+* Rails 5.1.4
+* PostgreSQL
+* Redis
 
-* Configuration
+# Usage
 
-* Database creation
+* Gems install
+```
+bundle update
+```
+* Create database
+```
+rails db:migrate
+```
+* Launch Rails server
+```
+rails s
+```
+* Launch redis server
+```
+redis-server
+```
+* Launch sidekiq
+```
+sidekiq
+```
+* Have fun!
 
-* Database initialization
 
-* How to run the test suite
+### To Do:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ * Cover the app with 100% of tests (now it's about 20%)
+ * Add `seeds`
+ * Deploy to Heroky (also configure the production configs)
+ * Add the attachment feature for the events for the non-admin users
+ * Add bootstrap and use it for the app styling
+ * Be a cool RoR developer
