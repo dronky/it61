@@ -1,4 +1,12 @@
 h1 List of the Events
-- @events.ordered_by_date.each do |e|
+= search_form_for @search do |f|
+  = f.label :title_cont
+  = f.search_field :title_cont
+  = f.submit
+.tags
+  h4 Tags:
+  = link_to 'Ruby tag', tag:'ruby'
+- @events.each do |e|
   = render 'event_details', event: e
   = render 'subscribe_event', event: e.id
+= paginate @events

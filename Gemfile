@@ -35,7 +35,9 @@ gem 'slim'
 gem 'icalendar'
 gem 'sidekiq'
 gem 'redis-rails'
-
+gem 'acts-as-taggable-array-on'
+gem 'kaminari'
+gem 'ransack'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

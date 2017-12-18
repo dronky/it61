@@ -8,11 +8,16 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :events, only: [:new, :create, :edit, :update, :destroy]
+    resources :settings, only: [:index]
+    post '/delivery_days' => 'settings#set_delivery_days'
   end
 
   resources :events, only: [:index, :show] do
     get :ics_calendar
   end
+
   resources :organizers, only: [:index, :show]
   resources :subscribers, only: [:new, :create]
+  resources :search, only: [:index]
+
 end

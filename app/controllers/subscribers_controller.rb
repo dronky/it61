@@ -11,7 +11,7 @@ class SubscribersController < ApplicationController
   private
 
   def add_to_the_email_queue
-    PostmanWorker.perform_at(@subscriber.event.started_at.prev_day, Subscriber.last.email, Subscriber.last.event.title)
+    PostmanWorker.perform_at(@subscriber.delivery_at, Subscriber.last.email, Subscriber.last.event.title)
   end
 
   def subscriber_params

@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    @events = Event.all.ordered_by_date
+    @events = @events.with_any_tags(params[:tag]) if params[:tag]
+    @events = @events.page(params[:page])
+    @search = @events.ransack(params[:q])
+    @events = @search.result(distinct: true) if params[:q]
   end
 
   def show
@@ -23,5 +27,9 @@ class EventsController < ApplicationController
 
     calendar.publish
     send_data calendar.to_ical
+  end
+
+  def search_result
+
   end
 end

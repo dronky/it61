@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215191032) do
+ActiveRecord::Schema.define(version: 20171218144810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,8 +32,10 @@ ActiveRecord::Schema.define(version: 20171215191032) do
     t.integer "organizer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tags", default: [], array: true
     t.index ["organizer_id"], name: "index_events_on_organizer_id"
     t.index ["place_id"], name: "index_events_on_place_id"
+    t.index ["tags"], name: "index_events_on_tags", using: :gin
   end
 
   create_table "organizers", force: :cascade do |t|
@@ -47,6 +49,13 @@ ActiveRecord::Schema.define(version: 20171215191032) do
     t.string "city"
     t.float "latitude"
     t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.string "setting"
+    t.integer "value", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  acts_as_taggable_array_on :tags
+
   mount_uploader :cover, CoverUploader
 
   belongs_to :place

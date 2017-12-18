@@ -1,0 +1,4 @@
+h4 Set the deliver days for the subscription
+= form_with url: admin_delivery_days_path, local: true, method: :post do |e|
+  = e.select :value, [1, 2, 3, 4, 5]
+  = e.submit
