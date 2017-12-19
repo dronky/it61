@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.cache_store = :redis_store, ENV['REDISCLOUD_URL']
+  ENV["REDISTOGO_URL"] = 'redis://username:password@my.host:6389'
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
